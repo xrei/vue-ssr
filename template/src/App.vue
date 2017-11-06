@@ -11,10 +11,7 @@
 	padding: 0;
 	&:before, &:after { box-sizing: inherit; }
 }
-html, body{
-	width: 100%;
-	height: 100%;
-}
+
 body{
   color: #212121;
 	background: #fff;
