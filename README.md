@@ -24,6 +24,6 @@ If port 7070 is already in use on your machine you must change the port number i
 
 ### TODO
 
-<input type="checkbox">Choice of eslint plugin</input>
-<input type="checkbox">Choice of css preprocessors</input>
-<input type="checkbox">Choice vue-meta plugin</input>
+- [ ] Choice of eslint plugin
+- [ ] Choice of css preprocessors
+- [ ] Choice vue-meta plugin
