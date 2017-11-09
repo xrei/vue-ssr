@@ -14,7 +14,30 @@
     "author": {
       "type": "string",
       "label": "Author"
-    }
+    },
+
+    "cssPreproc": {
+      "when": "csspp",
+      "type": "list",
+      "message": "Pick a CSS Preprocessor",
+      "choices": [
+        {
+          "name": "Sass/SCSS",
+          "value": "sass",
+          "short": "Sass"
+        },
+        {
+          "name": "Stylus",
+          "value": "stylus",
+          "short": "Stylus"
+        },
+        {
+          "name": "none (configure it yourself)",
+          "value": "none",
+          "short": "none"
+        }
+      ]
+    },    
   },
   "completeMessage": "{{#inPlace}}To get started:\n\n  npm install\n  npm run dev{{else}}To get started:\n\n  cd {{destDirName}}\n  npm install\n  npm run dev{{/inPlace}}"
 }

@@ -41,11 +41,15 @@
     "dotenv": "^4.0.0",
     "file-loader": "^1.1.5",
     "friendly-errors-webpack-plugin": "^1.6.1",
+    {{#if_eq cssPreproc "sass"}}
     "node-sass": "^4.6.0",
-    "rimraf": "^2.6.2",
     "sass-loader": "^6.0.6",
+    {{/if_eq}}
+    "rimraf": "^2.6.2",
+    {{#if_eq cssPreproc "stylus"}}
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.1",
+    {{/if_eq}}
     "sw-precache-webpack-plugin": "^0.11.4",
     "url-loader": "^0.6.2",
     "vue-loader": "^13.4.0",
