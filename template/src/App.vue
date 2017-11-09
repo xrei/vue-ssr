@@ -4,12 +4,11 @@
   </div>
 </template>
 
-<style lang="scss">
+<style>
 *{
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
-	&:before, &:after { box-sizing: inherit; }
 }
 
 body{
