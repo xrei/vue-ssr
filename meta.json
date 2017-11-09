@@ -17,7 +17,6 @@
     },
 
     "cssPreproc": {
-      "when": "csspp",
       "type": "list",
       "message": "Pick a CSS Preprocessor",
       "choices": [
