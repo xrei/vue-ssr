@@ -14,7 +14,7 @@ This is a project template for [vue-cli](https://github.com/vuejs/vue-cli). **It
 
 ``` bash
 $ npm install -g vue-cli
-$ vue init romanrei/vue-ssr project-name
+$ vue init xrei/vue-ssr project-name
 $ cd project-name
 $ npm install
 $ npm run dev
