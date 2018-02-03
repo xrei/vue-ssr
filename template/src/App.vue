@@ -20,4 +20,3 @@ body{
   -moz-osx-font-smoothing: grayscale;
 }
 </style>
-
