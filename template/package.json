@@ -39,6 +39,21 @@
     "chokidar": "^1.7.0",
     "css-loader": "^0.28.7",
     "dotenv": "^4.0.0",
+    {{#lint}}
+    "babel-eslint": "^8.2.1",
+    "eslint": "^4.16.0",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-vue": "^4.2.2",
+    "eslint-friendly-formatter": "^3.0.0",
+    {{#if_eq eslint "standard"}}
+    "eslint-import-resolver-webpack": "^0.8.4",
+    "eslint-config-standard": "^11.0.0-beta.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
+    {{/if_eq}}
+    {{/lint}}
     "file-loader": "^1.1.5",
     "friendly-errors-webpack-plugin": "^1.6.1",
     {{#if_eq cssPreproc "sass"}}
