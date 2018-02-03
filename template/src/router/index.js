@@ -3,6 +3,9 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
+// use this dynamic import if you want to split
+// your code on chunks
+// if don't then use import comp from '...' as usual
 const _import = file => () => import(`../views/${file}.vue`)
 
 const routes = [
