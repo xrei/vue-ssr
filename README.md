@@ -25,5 +25,5 @@ If port 7070 is already in use on your machine you must change the port number i
 ### TODO
 
 - [x] ~~Install CSS preprocessors~~
-- [ ] Install eslint plugin
+- [x] ~~Install ESLint plugin~~
 - [ ] Install vue-meta plugin
