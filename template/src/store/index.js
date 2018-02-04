@@ -9,7 +9,7 @@ Vue.use(Vuex)
 export function createStore () {
   return new Vuex.Store({
     state: {
-      //
+      cryptoRates: null
     },
     actions,
     mutations,

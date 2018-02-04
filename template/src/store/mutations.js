@@ -1,3 +1,7 @@
+import Vue from 'vue'
+
 export default {
-  // Write your mutations here
+  setCryptoRates (state, data) {
+    Vue.set(state, 'cryptoRates', data)
+  }
 }
