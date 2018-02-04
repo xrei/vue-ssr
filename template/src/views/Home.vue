@@ -11,8 +11,8 @@
         class="currency-item"
         v-for="i in currency"
         :key="i.id">
-        <div class="name">{{ i.symbol }}</div>
-        <div class="price">${{ i.price_usd }}</div>
+        <div class="name">\{{ i.symbol }}</div>
+        <div class="price">$\{{ i.price_usd }}</div>
       </div>
     </div>
   </div>
