@@ -108,6 +108,7 @@ function render (req, res) {
 
     const { htmlAttrs } = context.meta.inject()
 
+    // vue-meta support
     res.send(`
       <!DOCTYPE html>
       <html data-vue-meta-server-rendered ${htmlAttrs.text()}>
