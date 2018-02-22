@@ -1,11 +1,11 @@
 <head>
   <meta charset="utf-8">
-  {{{ meta.inject().title.text() }}}
-  {{{ meta.inject().meta.text() }}}
-  {{{ meta.inject().link.text() }}}
-  {{{ meta.inject().style.text() }}}
-  {{{ meta.inject().script.text() }}}
-  {{{ meta.inject().noscript.text() }}}
+  \{{{ meta.inject().title.text() }}}
+  \{{{ meta.inject().meta.text() }}}
+  \{{{ meta.inject().link.text() }}}
+  \{{{ meta.inject().style.text() }}}
+  \{{{ meta.inject().script.text() }}}
+  \{{{ meta.inject().noscript.text() }}}
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -15,6 +15,6 @@
   <meta name="theme-color" content="#fff">
   <link rel="manifest" href="/manifest.json">
 </head>
-<body {{{ meta.inject().bodyAttrs.text() }}}>
+<body \{{{ meta.inject().bodyAttrs.text() }}}>
 <!--vue-ssr-outlet-->
 </body>
