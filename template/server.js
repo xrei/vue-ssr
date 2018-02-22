@@ -27,7 +27,8 @@ function createRenderer (bundle, options) {
     // this is only needed when vue-server-renderer is npm-linked
     basedir: resolve('./dist'),
     // recommended for performance
-    runInNewContext: false
+    runInNewContext: false,
+    inject: true
   }))
 }
 
@@ -98,14 +99,22 @@ function render (req, res) {
   }
 
   const context = {
-    title: 'Vue HN 2.0', // default title
     url: req.url
   }
   renderer.renderToString(context, (err, html) => {
     if (err) {
       return handleError(err)
     }
-    res.send(html)
+
+    const { htmlAttrs } = context.meta.inject()
+
+    res.send(`
+      <!DOCTYPE html>
+      <html data-vue-meta-server-rendered ${htmlAttrs.text()}>
+        ${html}
+      </html>
+    `) 
+
     if (!isProd) {
       console.log(`whole request: ${Date.now() - s}ms`)
     }

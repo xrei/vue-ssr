@@ -1,17 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
-    <!-- <link rel="apple-touch-icon" sizes="120x120" href="/public/logo-120.png"> -->
-    <link rel="shortcut icon" sizes="48x48" href="/public/logo-48.png">
-    <meta name="theme-color" content="#fff">
-    <link rel="manifest" href="/manifest.json">
-  </head>
-  <body>
-  <!--vue-ssr-outlet-->
-  </body>
-</html>
+<head>
+  <meta charset="utf-8">
+  {{{ meta.inject().title.text() }}}
+  {{{ meta.inject().meta.text() }}}
+  {{{ meta.inject().link.text() }}}
+  {{{ meta.inject().style.text() }}}
+  {{{ meta.inject().script.text() }}}
+  {{{ meta.inject().noscript.text() }}}
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+  <!-- <link rel="apple-touch-icon" sizes="120x120" href="/public/logo-120.png"> -->
+  <link rel="shortcut icon" sizes="48x48" href="/public/logo-48.png">
+  <meta name="theme-color" content="#fff">
+  <link rel="manifest" href="/manifest.json">
+</head>
+<body {{{ meta.inject().bodyAttrs.text() }}}>
+<!--vue-ssr-outlet-->
+</body>

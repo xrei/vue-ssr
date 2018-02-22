@@ -1,8 +1,11 @@
 import Vue from 'vue'
+import Meta from 'vue-meta'
 import App from './App.vue'
 import { createStore } from './store'
 import { createRouter } from './router'
 import { sync } from 'vuex-router-sync'
+
+Vue.use(Meta)
 
 // Expose a factory function that creates a fresh set of store, router,
 // app instances on each call (which is called for each SSR request)
@@ -19,6 +22,16 @@ export function createApp () {
   // here we inject the router, store and ssr context to all child components,
   // making them available everywhere as `this.$router` and `this.$store`.
   const app = new Vue({
+    metaInfo: {
+      title: 'Vue SSR',
+      meta: [
+        { vmid: 'description', name: 'description', content: 'vue ssr template' }
+      ],
+      titleTemplate: '%s | Test',
+      htmlAttrs: {
+        lang: 'en'
+      }
+    },
     router,
     store,
     render: h => h(App)
