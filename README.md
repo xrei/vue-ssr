@@ -20,7 +20,7 @@ $ npm install
 $ npm run dev
 ```
 
-If port 7070 is already in use on your machine you must change the port number in `variables.env`. Otherwise `npm run dev` will fail.
+If port 7070 is already in use on your machine you must change the port number in `.env`. Otherwise `npm run dev` will fail.
 
 ### TODO
 
