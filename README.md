@@ -11,16 +11,13 @@
 ## Usage
 
 This is a project template for old version [vue-cli](https://github.com/vuejs/vue-cli).
-Even if you have version 3 of vue-cli, you can install
-
-```bash
-npm i @vue/cli-init
-```
+Even if you have version 3 of vue-cli, you can install `@vue/cli-init`
 
 And use it as you used before.
 
 ``` bash
-$ npm install -g vue-cli
+$ npm i -g @vue/cli
+$ npm i -g @vue/cli-init
 $ vue init xrei/vue-ssr project-name
 $ cd project-name
 $ npm install
