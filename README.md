@@ -10,7 +10,14 @@
 
 ## Usage
 
-This is a project template for [vue-cli](https://github.com/vuejs/vue-cli). **It is recommended to use npm 3+ or [yarn](https://yarnpkg.com) for a more efficient dependency tree.**
+This is a project template for old version [vue-cli](https://github.com/vuejs/vue-cli).
+Even if you have version 3 of vue-cli, you can install
+
+```bash
+npm i @vue/cli-init
+```
+
+And use it as you used before.
 
 ``` bash
 $ npm install -g vue-cli
@@ -24,6 +31,6 @@ If port 7070 is already in use on your machine you must change the port number i
 
 ### TODO
 
-- [x] ~~Install CSS preprocessors~~
-- [x] ~~Install ESLint plugin~~
-- [x] ~~Install vue-meta plugin~~
+- [x] ~~Add CSS preprocessors~~
+- [x] ~~Add ESLint plugin~~
+- [x] ~~Add vue-meta plugin~~
