@@ -12,11 +12,6 @@ module.exports = merge(base, {
     filename: 'server-bundle.js',
     libraryTarget: 'commonjs2'
   },
-  resolve: {
-    alias: {
-      //
-    }
-  },
   // https://webpack.js.org/configuration/externals/#externals
   // https://github.com/liady/webpack-node-externals
   externals: nodeExternals({
