@@ -29,7 +29,10 @@ export default {
     }
   },
   mounted () {
-    this.interval = setInterval(() => { this.$store.dispatch('asyncRequest') }, 2 * 60 * 1000)
+    this.interval = setInterval(() => {
+      this.$bar.start()
+      this.$store.dispatch('asyncRequest').then(this.$bar.finish())
+    }, 2 * 60 * 1000)
   },
   beforeDestroy () {
     clearInterval(this.interval)
