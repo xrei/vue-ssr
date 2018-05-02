@@ -18,11 +18,9 @@ module.exports = {
     'standard'
   ],
   {{/if_eq}}
-
   {{#if_eq eslint "none"}}
   extends: ['plugin:vue/strongly-recommended'],
   {{/if_eq}}
-
   rules: {
     'prefer-promise-reject-errors': 0,
     // allow debugger during development
