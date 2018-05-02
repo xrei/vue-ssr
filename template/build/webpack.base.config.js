@@ -69,6 +69,29 @@ module.exports = {
           'css-loader'
         ]
       },
+      //{{#if_eq cssPreproc "sass"}}
+      {
+        test: /\.scss$/,
+        use: [
+          'vue-style-loader',
+          'css-loader',
+          'sass-loader'
+        ]
+      },
+      {
+        test: /\.sass$/,
+        use: [
+          'vue-style-loader',
+          'css-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              indentedSyntax: true
+            }
+          }
+        ]
+      },
+      //{{/if_eq}}
       {
         test: /\.styl(us)?$/,
         use: isProd
