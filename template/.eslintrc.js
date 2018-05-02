@@ -22,18 +22,6 @@ module.exports = {
   {{#if_eq eslint "none"}}
   extends: ['plugin:vue/strongly-recommended'],
   {{/if_eq}}
-  
-  plugins: [
-    
-  ],
-  // check if imports actually resolve
-  settings: {
-    'import/resolver': {
-      'webpack': {
-        'config': 'build/webpack.base.config.js'
-      }
-    }
-  },
 
   rules: {
     'prefer-promise-reject-errors': 0,
