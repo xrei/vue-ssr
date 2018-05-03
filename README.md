@@ -1,12 +1,23 @@
-# Vue.js SSR/PWA template
+# Server Side Rendering template
 
-> SSR/PWA template based on Vue.js hackernews clone
+> *Server Side Rendering / Progressive Web Application template based on Vue.js hackernews clone*
+
+---
 
 ## Documentation
 
 - If you have any questions how the SSR works in this template, please read [official Vue.js SSR Guide](https://ssr.vuejs.org/)
 - Check out the [official Vue.js guide](http://vuejs.org/guide/) for general information about Vue that is not specific to this template.
 - It's highly recommended to get know how webpack works, in case if you want to make changes to your build output.
+
+## Features
+- Scalable architecture from small to large projects
+- Best `SEO` support with [vue-meta](https://github.com/declandewet/vue-meta)
+- Auto-generated service worker for **PWA** support on production
+- Linting with `ESlint`
+- **Vue** - **Vue-router** - **Vuex** under the hood!
+- Easy to use installer
+- More soon!
 
 ## Usage
 
