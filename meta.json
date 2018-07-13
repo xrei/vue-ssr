@@ -20,11 +20,7 @@
       "type": "list",
       "message": "Pick a CSS Preprocessor",
       "choices": [
-        {
-          "name": "Sass/SCSS",
-          "value": "sass",
-          "short": "Sass"
-        },
+
         {
           "name": "Stylus",
           "value": "stylus",

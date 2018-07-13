@@ -3,37 +3,73 @@ const merge = require('webpack-merge')
 const base = require('./webpack.base.config')
 const SWPrecachePlugin = require('sw-precache-webpack-plugin')
 const VueSSRClientPlugin = require('vue-server-renderer/client-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
-const config = merge(base, {
+const isProd = process.env.NODE_ENV === 'production'
+
+const config = merge.smart(base, {
   entry: {
     app: './src/entry-client.js'
   },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          !isProd ? 'vue-style-loader' : MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: { minimize: isProd }
+          }
+        ]
+      },
+      {
+        test: /\.styl(us)?$/,
+        use: [
+          !isProd ? 'vue-style-loader' : MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: { minimize: isProd }
+          },
+          'stylus-loader'
+        ]
+      }
+    ]
+  },
   plugins: [
-    // strip dev-only code in Vue source
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
-      'process.env.VUE_ENV': '"client"'
+      'process.env.VUE_ENV': '"client"',
+      'process.browser': true,
+      'process.client': true,
+      'process.server': false
     }),
-    // extract vendor chunks for better caching
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      minChunks: function (module) {
-        // a module is extracted into the vendor chunk if...
-        return (
-          // it's inside node_modules
-          /node_modules/.test(module.context) &&
-          // and not a CSS file (due to extract-text-webpack-plugin limitation)
-          !/\.css$/.test(module.request)
-        )
-      }
-    }),
-    // extract webpack runtime & manifest to avoid vendor chunk hash changing
-    // on every build.
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'manifest'
-    }),
+
     new VueSSRClientPlugin()
-  ]
+  ],
+  optimization: {
+    runtimeChunk: true,
+    splitChunks: {
+      chunks: 'initial',
+      cacheGroups: {
+        styles: {
+          name: 'styles',
+          test: /\.css$/,
+          chunks: 'all',
+          enforce: true
+        },
+        vendor: {
+          name: 'vendor',
+          test (module) {
+            return (
+              /node_modules/.test(module.context) &&
+              !/\.css$/.test(module.request)
+            )
+          }
+        }
+      }
+    }
+  }
 })
 
 if (process.env.NODE_ENV === 'production') {

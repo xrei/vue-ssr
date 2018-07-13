@@ -1,8 +1,9 @@
 const path = require('path')
-const webpack = require('webpack')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const { VueLoaderPlugin } = require('vue-loader')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 
 const isProd = process.env.NODE_ENV === 'production'
 
@@ -11,9 +12,8 @@ function resolve (dir) {
 }
 
 module.exports = {
-  devtool: isProd
-    ? false
-    : '#cheap-module-source-map',
+  mode: isProd ? 'production' : 'development',
+  devtool: isProd ? false : '#cheap-module-source-map',
   output: {
     path: path.resolve(__dirname, '../dist'),
     publicPath: '/dist/',
@@ -27,9 +27,9 @@ module.exports = {
     }
   },
   module: {
-    noParse: /es6-promise\.js$/, // avoid webpack shimming process
+    noParse: /es6-promise\.js$/,
     rules: [
-      //{{#lint}}
+
       {
         test: /\.(js|vue)$/,
         loader: 'eslint-loader',
@@ -39,7 +39,6 @@ module.exports = {
           formatter: require('eslint-friendly-formatter')
         }
       },
-      //{{/lint}}
       {
         test: /\.vue$/,
         loader: 'vue-loader',
@@ -61,51 +60,6 @@ module.exports = {
           limit: 10000,
           name: '[name].[ext]?[hash]'
         }
-      },
-      {
-        test: /\.css$/,
-        use: [
-          'vue-style-loader',
-          'css-loader'
-        ]
-      },
-      //{{#if_eq cssPreproc "sass"}}
-      {
-        test: /\.scss$/,
-        use: [
-          'vue-style-loader',
-          'css-loader',
-          'sass-loader'
-        ]
-      },
-      {
-        test: /\.sass$/,
-        use: [
-          'vue-style-loader',
-          'css-loader',
-          {
-            loader: 'sass-loader',
-            options: {
-              indentedSyntax: true
-            }
-          }
-        ]
-      },
-      //{{/if_eq}}
-      {
-        test: /\.styl(us)?$/,
-        use: isProd
-          ? ExtractTextPlugin.extract({
-            use: [
-              {
-                loader: 'css-loader',
-                options: { minimize: true }
-              },
-              'stylus-loader'
-            ],
-            fallback: 'vue-style-loader'
-          })
-          : ['vue-style-loader', 'css-loader', 'stylus-loader']
       }
     ]
   },
@@ -115,17 +69,19 @@ module.exports = {
   },
   plugins: isProd
     ? [
-        new VueLoaderPlugin(),
-        new webpack.optimize.UglifyJsPlugin({
-          compress: { warnings: false }
-        }),
-        new webpack.optimize.ModuleConcatenationPlugin(),
-        new ExtractTextPlugin({
-          filename: 'common.[chunkhash].css'
-        })
-      ]
+      new VueLoaderPlugin(),
+      new MiniCssExtractPlugin({ filename: 'common.[chunkhash].css' })
+    ]
     : [
-        new VueLoaderPlugin(),
-        new FriendlyErrorsPlugin()
-      ]
+      new VueLoaderPlugin(),
+      new FriendlyErrorsPlugin()
+    ],
+  optimization: {
+    minimizer: isProd ? [
+      new UglifyJsPlugin({
+        parallel: true
+      }),
+      new OptimizeCSSAssetsPlugin()
+    ] : []
+  }
 }
