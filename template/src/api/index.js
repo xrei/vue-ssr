@@ -1,1 +1,1 @@
-export * from "./rate";
+export * from "./getRates";
