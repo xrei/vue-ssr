@@ -16,12 +16,12 @@ module.exports = merge.smart(base, {
     whitelist: [/\.css$/, /\?vue&type=style/]
   }),
   module: {
+    // important on server side
+    // because sadly new extract css plugin doesn't support server side css
     rules: [
-      // important on server side
-      // because sadly new extract css plugin doesn't support server side css
       {
         test: /\.(css|scss|stylus|styl)$/,
-        loader: 'null-loader'
+        use: ['vue-style-loader', 'css-loader', 'stylus-loader']
       }
     ]
   },
