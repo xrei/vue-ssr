@@ -17,6 +17,8 @@ module.exports = merge.smart(base, {
   }),
   module: {
     rules: [
+      // important on server side
+      // because sadly new extract css plugin doesn't support server side css
       {
         test: /\.(css|scss|stylus|styl)$/,
         loader: 'null-loader'
