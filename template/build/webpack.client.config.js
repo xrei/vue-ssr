@@ -16,6 +16,7 @@ const config = merge.smart(base, {
       {
         test: /\.css$/,
         use: [
+          'vue-style-loader',
           !isProd ? 'vue-style-loader' : MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
@@ -26,6 +27,7 @@ const config = merge.smart(base, {
       {
         test: /\.styl(us)?$/,
         use: [
+          'vue-style-loader',
           !isProd ? 'vue-style-loader' : MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
@@ -50,7 +52,7 @@ const config = merge.smart(base, {
   optimization: {
     runtimeChunk: true,
     splitChunks: {
-      chunks: 'initial',
+      chunks: 'all',
       cacheGroups: {
         styles: {
           name: 'styles',
