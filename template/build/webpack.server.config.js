@@ -20,8 +20,8 @@ module.exports = merge.smart(base, {
     // because sadly new extract css plugin doesn't support server side css
     rules: [
       {
-        test: /\.(css|scss|stylus|styl)$/,
-        use: ['vue-style-loader', 'css-loader', 'stylus-loader']
+        test: /\.(css|stylus|styl)$/,
+        use: ['css-loader', 'stylus-loader']
       }
     ]
   },

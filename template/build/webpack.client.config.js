@@ -15,26 +15,32 @@ const config = merge.smart(base, {
     rules: [
       {
         test: /\.css$/,
-        use: [
-          'vue-style-loader',
-          !isProd ? 'vue-style-loader' : MiniCssExtractPlugin.loader,
-          {
-            loader: 'css-loader',
-            options: { minimize: isProd }
-          }
-        ]
+          use: !isProd ? [
+            'vue-style-loader',
+            'css-loader'
+          ] : [
+            MiniCssExtractPlugin.loader,
+            {
+              loader: 'css-loader',
+              options: {minimize: isProd}
+            }
+          ]
       },
       {
         test: /\.styl(us)?$/,
-        use: [
-          'vue-style-loader',
-          !isProd ? 'vue-style-loader' : MiniCssExtractPlugin.loader,
-          {
-            loader: 'css-loader',
-            options: { minimize: isProd }
-          },
-          'stylus-loader'
-        ]
+        use: !isProd ? [
+            'vue-style-loader',
+            'css-loader',
+            'stylus-loader'
+          ] :
+          [
+            MiniCssExtractPlugin.loader,
+            {
+              loader: 'css-loader',
+              options: {minimize: isProd}
+            },
+            'stylus-loader'
+          ]
       }
     ]
   },
@@ -52,7 +58,7 @@ const config = merge.smart(base, {
   optimization: {
     runtimeChunk: true,
     splitChunks: {
-      chunks: 'all',
+      chunks: 'initial',
       cacheGroups: {
         styles: {
           name: 'styles',
