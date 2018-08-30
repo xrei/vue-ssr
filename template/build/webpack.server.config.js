@@ -4,6 +4,8 @@ const base = require('./webpack.base.config')
 const nodeExternals = require('webpack-node-externals')
 const VueSSRServerPlugin = require('vue-server-renderer/server-plugin')
 
+const isProd = process.env.NODE_ENV === 'production'
+
 module.exports = merge.smart(base, {
   target: 'node',
   devtool: '#source-map',
@@ -21,7 +23,7 @@ module.exports = merge.smart(base, {
     rules: [
       {
         test: /\.(css|stylus|styl)$/,
-        use: ['css-loader', 'stylus-loader']
+        use: isProd ? ['css-loader', 'stylus-loader'] : ['vue-style-loader', 'css-loader', 'stylus-loader']
       }
     ]
   },
