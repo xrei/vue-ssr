@@ -1,17 +1,16 @@
 {
   "presets": [
-    ["env", {
+    ["@babel/preset-env", {
       "modules": false,
       "loose": true
-    }],
-    "stage-2"
+    }]
   ],
   "plugins": [
-    ["transform-runtime", {
+    ["@babel/plugin-transform-runtime", {
       "helpers": false,
-      "polyfill": false,
-      "regenerator": true,
-      "moduleName": "babel-runtime"
-    }]
+      "regenerator": true
+    }],
+    "@babel/plugin-syntax-dynamic-import",
+    "@babel/plugin-proposal-object-rest-spread"
   ]
 }
