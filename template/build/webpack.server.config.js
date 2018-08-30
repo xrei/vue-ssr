@@ -19,11 +19,11 @@ module.exports = merge.smart(base, {
   }),
   module: {
     // important on server side
-    // because sadly new extract css plugin doesn't support server side css
+    // because sadly new mini extract css plugin doesn't support server side css
     rules: [
       {
         test: /\.(css|stylus|styl)$/,
-        use: isProd ? ['css-loader', 'stylus-loader'] : ['vue-style-loader', 'css-loader', 'stylus-loader']
+        use: ['css-loader', 'stylus-loader']
       }
     ]
   },
