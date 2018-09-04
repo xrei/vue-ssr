@@ -17,13 +17,15 @@ const config = merge.smart(base, {
         test: /\.css$/,
           use: !isProd ? [
             'vue-style-loader',
-            'css-loader'
+            'css-loader',
+            'postcss-loader',
           ] : [
             MiniCssExtractPlugin.loader,
             {
               loader: 'css-loader',
               options: {minimize: isProd}
             }
+            'postcss-loader',
           ]
       },
       {
@@ -31,6 +33,7 @@ const config = merge.smart(base, {
         use: !isProd ? [
             'vue-style-loader',
             'css-loader',
+            'postcss-loader',
             'stylus-loader'
           ] :
           [
@@ -39,6 +42,7 @@ const config = merge.smart(base, {
               loader: 'css-loader',
               options: {minimize: isProd}
             },
+            'postcss-loader',
             'stylus-loader'
           ]
       }

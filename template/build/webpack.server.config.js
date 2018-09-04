@@ -23,7 +23,7 @@ module.exports = merge.smart(base, {
     rules: [
       {
         test: /\.(css|stylus|styl)$/,
-        use: ['css-loader', 'stylus-loader']
+        use: ['css-loader', 'postcss-loader', 'stylus-loader']
       }
     ]
   },

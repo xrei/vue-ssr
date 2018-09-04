@@ -59,6 +59,7 @@
     "friendly-errors-webpack-plugin": "^1.7.0",
     "mini-css-extract-plugin": "^0.4.2",
     "optimize-css-assets-webpack-plugin": "^5.0.0",
+    "postcss-loader": "^3.0.0",
     "rimraf": "^2.6.2",
     {{#if_eq cssPreproc "stylus"}}
     "stylus": "^0.54.5",
