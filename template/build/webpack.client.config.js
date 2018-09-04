@@ -24,8 +24,8 @@ const config = merge.smart(base, {
             {
               loader: 'css-loader',
               options: {minimize: isProd}
-            }
-            'postcss-loader',
+            },
+            'postcss-loader'
           ]
       },
       {
