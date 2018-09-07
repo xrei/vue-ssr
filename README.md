@@ -39,6 +39,7 @@ If port 7070 is already in use on your machine you must change the port number i
 
 ### TODO
 
+- [] TypeScript support
 - [x] ~~Add CSS preprocessors~~
 - [x] ~~Add ESLint plugin~~
 - [x] ~~Add vue-meta plugin~~
