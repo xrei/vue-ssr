@@ -7,7 +7,7 @@ export default {
       // console.log(r.data)
       commit('setCryptoRates', r.data)
     }).catch(e => {
-      console.log(e);
+      console.log(e)
     })
   }
 }
