@@ -10,17 +10,13 @@ module.exports = {
     es6: true
     // node: true
   },
-  {{#if_eq eslint "standard"}}
   extends: [
     // https://github.com/vuejs/eslint-plugin-vue
     'plugin:vue/strongly-recommended', 
     // https://github.com/standard/standard/blob/master/docs/RULES-en.md
     'standard'
   ],
-  {{/if_eq}}
-  {{#if_eq eslint "none"}}
   extends: ['plugin:vue/strongly-recommended'],
-  {{/if_eq}}
   rules: {
     'prefer-promise-reject-errors': 0,
     // allow debugger during development
