@@ -83,13 +83,13 @@ app.use(microcache.cacheSeconds(1, req => useMicroCache && req.originalUrl))
 function render (req, res) {
   const s = Date.now()
 
-  res.setHeader("Content-Type", "text/html")
-  res.setHeader("Server", serverInfo)
+  res.setHeader('Content-Type', 'text/html')
+  res.setHeader('Server', serverInfo)
 
   const handleError = err => {
     if (err.url) {
       res.redirect(err.url)
-    } else if(err.code === 404) {
+    } else if (err.code === 404) {
       res.status(404).send('404 | Page Not Found')
     } else {
       // Render Error Page or Redirect
@@ -115,7 +115,7 @@ function render (req, res) {
       <html data-vue-meta-server-rendered ${htmlAttrs.text()}>
         ${html}
       </html>
-    `) 
+    `)
 
     if (!isProd) {
       console.log(`whole request: ${Date.now() - s}ms`)

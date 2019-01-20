@@ -16,7 +16,7 @@ module.exports = {
     // https://github.com/standard/standard/blob/master/docs/RULES-en.md
     'standard'
   ],
-  extends: ['plugin:vue/strongly-recommended'],
+
   rules: {
     'prefer-promise-reject-errors': 0,
     // allow debugger during development
