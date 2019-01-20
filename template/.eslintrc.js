@@ -12,7 +12,7 @@ module.exports = {
   },
   extends: [
     // https://github.com/vuejs/eslint-plugin-vue
-    'plugin:vue/strongly-recommended', 
+    'plugin:vue/essential', 
     // https://github.com/standard/standard/blob/master/docs/RULES-en.md
     'standard'
   ],
